@@ -1,0 +1,25 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+  letter-spacing: 1px;
+}
+
+.container {
+  width: 80%;
+  margin: 0 auto;
+}
+
+.basepage {
+  display: flex;
+  flex-direction: row;
+  .menu {
+    padding: 30px 38px 0 30px;
+    background-color: #222222;
+    height: auto;
+  }
+}

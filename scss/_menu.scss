@@ -1,0 +1,52 @@
+.menu {
+    font-family: "Russo One", sans-serif;
+    &__title {
+        font-size: 22px;
+        a {
+            color: #a3a3a3;
+            span {
+                color: #93fe00;
+            }
+        }
+    }
+    &__links {
+        margin-top: 20px;
+        p {
+            font-size: 18px;
+            margin: 10px 0;
+            a {
+                color: #93fe00;
+                span {
+                    color: #a3a3a3;
+                }
+            }
+            a:hover {
+                color: #93fe00;
+                transition: 0.2s;
+                span {
+                    color: #93fe00;
+                }
+            }
+        }
+        p:nth-child(1) {
+            display: none;
+        }
+    }
+    &__login {
+        margin-top: 30px;
+        display: inline-block;
+        a {
+            font-size: 16px;
+            padding: 3px;
+            background-color: #93fe00;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            text-align: center;
+            color: #222222;
+            transition: 0.4s;
+        }
+        a:hover {
+            background-color: #a3a3a3;
+        }
+    }
+}

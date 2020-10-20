@@ -1,0 +1,16 @@
+{
+  "name": "academicsports",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "watchsass": "sass --watch scss/main.scss:css/main.css",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bootstrap": "^4.5.2",
+    "sass": "^1.26.12"
+  }
+}
