@@ -1,22 +1,13 @@
 <?php
-    session_start();
-    require 'db.php';
     include 'app.php';
-    
-    //Routing
+
+    //Pagina ophalen adhv huidige page_id ($v_id)
     $v_id = $_GET['q_id'] ?? 1;
+    $current_page = Page::getById($v_id);
+    
+    $all_pages = Page::getAll();
 
-    //SQL om page_id, slug en name op te vragen van alle paginas
-    $sql = 'SELECT `page_id`, `slug`, `name` FROM `pages` ORDER BY `sort_order`';
-    $pdo_statement = $db->prepare($sql);
-    $pdo_statement->execute();
-    $all_pages = $pdo_statement->fetchAll();
-
-    //SQL om all info op te vragen van de huidige page_id ($v_id)
-    $sql = 'SELECT * FROM `pages` WHERE `page_id` = :p_id';
-    $pdo_statement = $db->prepare($sql);
-    $pdo_statement->execute( [ ':p_id' => $v_id ] );
-    $current_page = $pdo_statement->fetchObject();
+    
 
     //pad naar de juist view
     $view = 'views/' . $current_page->template . '.php';
@@ -42,19 +33,19 @@
         } else {
     
             //SQL om all info op te vragen van de huidige page_id ($v_id)
-            $sql = 'INSERT INTO `users` (`name`, `email`, `tel`, `password`)
-                    VALUES (:name, :email, :tel, :password)';
+            $sql = 'INSERT INTO `users` (`username`, `email`, `tel`, `password`)
+                    VALUES (:username, :email, :tel, :password)';
             $pdo_statement = $db->prepare($sql);
             $pdo_statement->execute( [ 
-                ':name' => $_POST['name'] ?? '',
+                ':username' => $_POST['username'] ?? '',
                 ':email' => $_POST['email'] ?? '',
-                ':tel' => $_POST['email'] ?? '',
+                ':tel' => $_POST['tel'] ?? '',
                 ':password' => password_hash( $_POST['password'], PASSWORD_DEFAULT ),
             ] );
     
             $user_id = $db->lastInsertId();
-            echo 'Gebruiker ' . $user_id . ' is aangemaakt';
-    
+            $_SESSION['user_id'] = $user_id;
+            header('location: index.php');
         }
     }
 ?>
@@ -93,17 +84,17 @@
           </div>
         </div>
         <div class="registerpage__form">
-          <form action="#">
+          <form method="POST">
             <h2>Vul hier uw gegevens in</h2>
-            <label for="name">Naam *</label>
-            <input type="text" name="name" id="name" required />
+            <label for="username">Naam *</label>
+            <input type="text" name="username" id="username" required />
             <label for="email">E-mail *</label>
             <input type="email" name="email" id="email" required />
             <label for="password">Wachtwoord *</label>
             <input type="password" name="password" id="password" required />
             <label for="tel">Telefoon</label>
             <input type="tel" name="tel" id="tel" />
-            <a href="#">Registeren</a>
+            <button type="submit" name="register">Registreer</button>
           </form>
         </div>
         <div class="footer registerpage__footer">
