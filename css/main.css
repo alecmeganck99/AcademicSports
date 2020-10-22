@@ -501,4 +501,86 @@ a {
   object-fit: cover;
 }
 
+.sportdetailpage {
+  font-family: "Russo One", sans-serif;
+  width: 100%;
+}
+.sportdetailpage__title {
+  margin: 60px 0 80px;
+  position: relative;
+  width: 100%;
+}
+.sportdetailpage__title .background {
+  height: 150px;
+  width: 80%;
+  background-color: #93fe00;
+  position: absolute;
+  z-index: 1;
+  right: 0;
+  margin-top: 60px;
+}
+.sportdetailpage__title .sportdetailpage--info {
+  display: grid;
+  grid-template-columns: 1fr 100%;
+}
+.sportdetailpage__title .sportdetailpage--info__img {
+  z-index: 2;
+  width: 350px;
+  height: 250px;
+}
+.sportdetailpage__title .sportdetailpage--info__img img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+.sportdetailpage__title .sportdetailpage--info__txt {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 60px;
+  width: 400px;
+  height: 150px;
+}
+.sportdetailpage__title .sportdetailpage--info__txt h1 {
+  font-size: 40px;
+  text-transform: uppercase;
+  z-index: 2;
+  position: relative;
+}
+.sportdetailpage__info .sd--info__box {
+  display: flex;
+  background-color: #222222;
+  justify-content: space-between;
+}
+.sportdetailpage__info .sd--info__box .sd--infobox {
+  padding: 10px;
+  color: #a3a3a3;
+  font-family: "Lato", sans-serif;
+}
+.sportdetailpage__info .sd--info__box .sd--infobox p {
+  font-size: 18px;
+  margin-bottom: 5px;
+}
+.sportdetailpage__info .sd--info__box .sd--infobox__title {
+  color: #93fe00;
+  font-size: 18px;
+  margin-bottom: 5px;
+}
+.sportdetailpage__info .sd--info__box .sd--imgbox {
+  width: 300px;
+  height: 100%;
+}
+.sportdetailpage__info .sd--info__box .sd--imgbox img {
+  height: 100%;
+  width: 100%;
+  display: block;
+}
+.sportdetailpage__info .sd--info__text {
+  margin-top: 50px;
+}
+.sportdetailpage__info .sd--info__text p {
+  font-family: "Lato", sans-serif;
+  font-size: 18px;
+}
+
 /*# sourceMappingURL=main.css.map */
