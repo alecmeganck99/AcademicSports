@@ -1,0 +1,75 @@
+.loginpage {
+    font-family: "Russo One", sans-serif;
+    width: 100%;
+    .lp--box {
+        margin: 60px 0 80px;
+        position: relative;
+        width: 100%;
+        .background {
+            height: 150px;
+            width: 80%;
+            background-color: #93fe00;
+            position: absolute;
+            z-index: 1;
+            right: 0;
+            margin-top: 60px;
+        }
+        .lp--insidebox {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            &__img {
+                z-index: 2;
+            }
+            &__form {
+                margin-top: 90px;
+                width: 500px;
+                h1 {
+                    font-size: 40px;
+                    text-transform: uppercase;
+                    z-index: 2;
+                    position: relative;
+                }
+                form {
+                    margin-top: 50px;
+                    display: flex;
+                    flex-direction: column;
+                    label {
+                        font-size: 18px;
+                        color: #222222;
+                        margin-bottom: 5px;
+                        text-transform: uppercase;
+                    }
+                    input {
+                        font-family: "Russo One", sans-serif;
+                        margin-bottom: 20px;
+                        background-color: #93fe00;
+                        border: none;
+                        font-size: 16px;
+                        padding: 2px 5px;
+                        width: 300px;
+                    }
+                    button {
+                        font-family: "Russo One", sans-serif;
+                        font-size: 16px;
+                        padding: 3px 14px;
+                        background-color: #93fe00;
+                        text-transform: uppercase;
+                        color: #222222;
+                        transition: 0.4s;
+                        width: 150px;
+                        text-align: center;
+                        border: none;
+                    }
+                    button:hover {
+                        background-color: #a3a3a3;
+                    }
+                }
+            }
+        }
+    }
+}
+.fillin {
+    background-color: #222222;
+    height: 200px;
+    width: 100%;
+}

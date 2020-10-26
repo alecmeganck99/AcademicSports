@@ -13,7 +13,7 @@
         <?php if ($user_id ) : ?>
             <p><?= $user->username; ?></p><a href="logoff.php">Uitloggen</a>
         <?php else : ?>
-            <a href="#">login</a> <a href="register.php">registreer</a>
+            <a href="login.php">login</a> <a href="register.php">registreer</a>
         <?php endif; ?>
     </div>
 </div>

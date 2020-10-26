@@ -26,7 +26,6 @@
 </head>
 <body>
     <?php
-    //Laad de view in
     include $view;
     ?>
 </body>
