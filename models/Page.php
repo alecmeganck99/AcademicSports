@@ -8,8 +8,6 @@ class Page extends BaseModel {
     public $page_id = 0;
     public $slug;
     public $name;
-    // public $title;
-    // public $content;
     public $template;
     public $sort_order;
 
@@ -21,8 +19,6 @@ class Page extends BaseModel {
         $data = [
             ':slug' => $this->slug,
             ':name' => $this->name,
-            // ':title' => $this->title,
-            // ':content' => $this->content,
             ':template' => $this->template,
         ];
 

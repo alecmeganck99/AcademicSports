@@ -7,18 +7,6 @@
     
     $all_pages = Page::getAll();
 
-    
-
-    //pad naar de juist view
-    // $view = 'views/' . $current_page->template . '.php';
-    // //Indien het php bestand niet bestaat gebruik dan page.php
-    // if(  ! file_exists($view) ) {
-    //     $view = 'views/home.php';
-    // }
-
-    //haal id uit querystring en hou bij in een variabele
-    // $v_id = $_GET['q_id'] ?? 0;
-
     //sql met parameter placeholders
     $sql = 'SELECT * FROM `sports` WHERE `id` = :s_id';
 
