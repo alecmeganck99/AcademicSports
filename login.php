@@ -10,26 +10,6 @@
     if(  ! file_exists($view) ) {
         $view = 'views/page.php';
     }
-
-    $message = '';
-    if( isset($_POST['login'] ) ) {
-
-        $user = User::getUserByEmail( $_POST['email'] );
-        
-        if( isset($user->email) ) {
-            if( password_verify ( $_POST['password'], $user->password) )
-            {
-                $_SESSION['user_id'] = $user->user_id;
-                header('location: index.php');
-    
-            }
-            else {
-                echo 'E-mail en/of wachtwoord is verkeerd';
-            }
-        }else {
-            echo 'E-mail en/of wachtwoord is verkeerd';
-        }
-    }
 ?>
 
 <!DOCTYPE html>
@@ -66,10 +46,31 @@
                     id="password"
                     required
                   />
+                  <?php
+                   if( isset($_POST['login'] ) ) {
+
+                        $email = $_POST['email'] ?? '';
+                        $user = (new User)->getUserByEmail($email);
+                        
+                        if (!$user) {
+                            echo 'Gebruiker niet gevonden';
+                        } else {
+                            if(!$_POST['password']) {
+                                echo 'Vul een wachtwoord in!';
+                            } else {
+                                if( password_verify ( $_POST['password'], $user->password)){
+                                    $_SESSION['id'] = $user->id;
+                                    $_SESSION['username'] = $user->username;
+
+                                    header('location: ./index.php');
+                                } else {
+                                    echo 'Wachtwoord is onjuist.';
+                                }
+                            }
+                        }
+                    }
+                  ?>
                   <button type="submit" name="login">Inloggen</button>
-                <?php if($message) : ?>
-                    <div class="alert"><?= $message; ?></div>
-                <?php endif; ?>
                 </form>
               </div>
             </div>

@@ -20,5 +20,14 @@ class User extends BaseModel {
 
         return $pdo_statement->fetchObject();
     }
+    public function getUser( string $search ) {
+        global $db;
+        $sql = 'SELECT * FROM `users` WHERE `username` LIKE :search';
+        $pdo_statement = $db->prepare($sql);
+        $pdo_statement->execute([
+            ':search' => '%' . $search . '%'
+        ]);
+        return $pdo_statement->fetchAll();
+    }
 
 }
